@@ -1,7 +1,16 @@
 const inputBox= document.getElementById("input-box")
 const listContainer= document.getElementById("list-container")
+const myBtn= document.getElementById("my-btn")
 
-const addTask =()=>{
+
+inputBox.addEventListener("keyup", e =>{
+    e.preventDefault()
+    if (e.keyCode === 13) {
+        myBtn.click()
+    }
+})
+
+myBtn.addEventListener("click",()=>{
     if(inputBox.value === ""){
         alert("please write something.")
     }
@@ -15,7 +24,7 @@ const addTask =()=>{
     }
     inputBox.value= ""
     saveTodoLs()
-}
+})
 
 listContainer.addEventListener("click",(event)=>{
     if(event.target.tagName === "LI"){
